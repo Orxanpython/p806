@@ -1,0 +1,245 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-14 18:10+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ADVANCE/settings.py:205
+msgid "Azerbaijani"
+msgstr "Azerbaycanca"
+
+#: ADVANCE/settings.py:206
+msgid "Turkish"
+msgstr ""
+
+#: ADVANCE/settings.py:207
+msgid "English"
+msgstr ""
+
+#: core/models.py:20
+msgid "Category"
+msgstr ""
+
+#: core/models.py:21
+msgid "Categories"
+msgstr ""
+
+#: core/models.py:40
+msgid "Setting"
+msgstr ""
+
+#: core/models.py:41
+msgid "Settings"
+msgstr ""
+
+#: core/models.py:58 core/models.py:59
+msgid "News"
+msgstr ""
+
+#: core/models.py:79
+msgid "Product"
+msgstr ""
+
+#: core/models.py:80
+msgid "Products"
+msgstr ""
+
+#: core/models.py:98
+msgid "Contact"
+msgstr ""
+
+#: core/models.py:99 core/templates/partials/header.html:63
+msgid "Contacts"
+msgstr ""
+
+#: core/templates/index.html:16 core/templates/index.html:36
+msgid "Summer Collection"
+msgstr ""
+
+#: core/templates/index.html:17 core/templates/index.html:37
+msgid "Fall - Winter Collections 2030"
+msgstr ""
+
+#: core/templates/index.html:18 core/templates/index.html:38
+msgid ""
+"A specialist label creating luxury essentials. Ethically crafted with an "
+"unwavering commitment to exceptional quality."
+msgstr ""
+
+#: core/templates/index.html:19 core/templates/index.html:39
+#: core/templates/index.html:66
+msgid "Shop now"
+msgstr ""
+
+#: core/templates/index.html:107
+msgid "Best Sellers"
+msgstr ""
+
+#: core/templates/index.html:108
+msgid "New Arrivals"
+msgstr ""
+
+#: core/templates/index.html:109
+msgid "Hot Sales"
+msgstr ""
+
+#: core/templates/index.html:126 core/templates/index.html:160
+#: core/templates/index.html:195 core/templates/index.html:229
+#: core/templates/index.html:263 core/templates/index.html:298
+#: core/templates/index.html:332 core/templates/index.html:366
+msgid "+ Add To Cart"
+msgstr ""
+
+#: core/templates/index.html:475
+msgid "Latest News"
+msgstr ""
+
+#: core/templates/index.html:476
+msgid "Fashion New Trends"
+msgstr ""
+
+#: core/templates/index.html:485 core/templates/index.html:495
+msgid "16 February 2020"
+msgstr ""
+
+#: core/templates/index.html:487 core/templates/index.html:497
+#: core/templates/index.html:507
+msgid "Read More"
+msgstr ""
+
+#: core/templates/index.html:505
+msgid "28 February 2020"
+msgstr ""
+
+#: core/templates/partials/footer.html:16
+msgid ""
+"The customer is at the heart of our unique business model, which includes "
+"design."
+msgstr ""
+
+#: core/templates/partials/footer.html:22
+#: core/templates/partials/footer.html:33
+msgid "Shopping"
+msgstr ""
+
+#: core/templates/partials/footer.html:24
+msgid "Clothing Store"
+msgstr ""
+
+#: core/templates/partials/footer.html:25
+msgid "Trending Shoes"
+msgstr ""
+
+#: core/templates/partials/footer.html:26
+msgid "Accessories"
+msgstr ""
+
+#: core/templates/partials/footer.html:27
+msgid "Sale"
+msgstr ""
+
+#: core/templates/partials/footer.html:35
+msgid "Contact Us"
+msgstr ""
+
+#: core/templates/partials/footer.html:36
+msgid "Payment Methods"
+msgstr ""
+
+#: core/templates/partials/footer.html:37
+msgid "Delivery"
+msgstr ""
+
+#: core/templates/partials/footer.html:38
+msgid "Return & Exchanges"
+msgstr ""
+
+#: core/templates/partials/footer.html:44
+msgid "NewLetter"
+msgstr ""
+
+#: core/templates/partials/footer.html:46
+msgid "Be the first to know about new arrivals, look books, sales & promos!"
+msgstr ""
+
+#: core/templates/partials/footer.html:60
+msgid "Copyright ©"
+msgstr ""
+
+#: core/templates/partials/footer.html:64
+msgid "All rights reserved"
+msgstr ""
+
+#: core/templates/partials/footer.html:65
+msgid "This template is made with"
+msgstr ""
+
+#: core/templates/partials/footer.html:65
+msgid "by"
+msgstr ""
+
+#: core/templates/partials/header.html:12
+msgid "Free shipping, 30-day return or refund guarantee."
+msgstr ""
+
+#: core/templates/partials/header.html:21
+msgid "Log out"
+msgstr ""
+
+#: core/templates/partials/header.html:23
+msgid "Log in"
+msgstr ""
+
+#: core/templates/partials/header.html:25
+msgid "Sign up"
+msgstr ""
+
+#: core/templates/partials/header.html:26
+msgid "FAQs"
+msgstr ""
+
+#: core/templates/partials/header.html:51
+msgid "Home"
+msgstr ""
+
+#: core/templates/partials/header.html:52
+msgid "Shop"
+msgstr ""
+
+#: core/templates/partials/header.html:53
+msgid "Pages"
+msgstr ""
+
+#: core/templates/partials/header.html:55
+msgid "About Us"
+msgstr ""
+
+#: core/templates/partials/header.html:57
+msgid "Shopping Cart"
+msgstr ""
+
+#: core/templates/partials/header.html:58
+msgid "Check Out"
+msgstr ""
+
+#: core/templates/partials/header.html:59
+msgid "Blog Details"
+msgstr ""
+
+#: core/templates/partials/header.html:62
+msgid "Blog"
+msgstr ""
