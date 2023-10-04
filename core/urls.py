@@ -1,6 +1,8 @@
 from core.views import home
 from django.urls import path
 from core.views import *
+from . import views
+
 
 urlpatterns = [
     path("", home, name="home"),
@@ -15,4 +17,10 @@ urlpatterns = [
     path("male fashion/",male_fashion, name="male_fashion"),
     path("shop/<slug:slug>/", shop_detail, name="shop_detail"),
     path('search/', search, name="search"),
+    # path('filter_products/<int:min_price>/<int:max_price>/', views.filter_products_by_price, name='filter_products_by_price'),
+    
+    
 ]
+
+
+

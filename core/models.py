@@ -1,4 +1,6 @@
+from django.utils import timezone
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
 from django.utils.translation import gettext as _
 from ckeditor.fields import RichTextField
@@ -25,6 +27,7 @@ class Category(BaseModel):
     
     
 class Setting(BaseModel):
+    company_name = models.CharField(max_length=255)
     logo = models.ImageField(upload_to="logo")
     phone = models.CharField(max_length=255)
     email = models.EmailField()
@@ -91,6 +94,10 @@ class Product(BaseModel):
 
 
 
+
+
+
+
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -105,4 +112,23 @@ class Contact(models.Model):
            return self.name
 
 
+
+
+
+
+
+
+
+
+
+class Subscriber(BaseModel):
+    
+    email = models.EmailField()
+    
+    class Meta:
+        verbose_name = _("Subscriber")
+        verbose_name_plural = _("Subscribers")
+        
+    def __str__(self):
+           return self.email
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-14 18:10+0000\n"
+"POT-Creation-Date: 2023-09-24 11:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ADVANCE/settings.py:205
+#: ADVANCE/settings.py:207
 msgid "Azerbaijani"
 msgstr "Azerbaycanca"
 
-#: ADVANCE/settings.py:206
+#: ADVANCE/settings.py:208
 msgid "Turkish"
 msgstr ""
 
-#: ADVANCE/settings.py:207
+#: ADVANCE/settings.py:209
 msgid "English"
 msgstr ""
 
@@ -50,19 +50,19 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: core/models.py:79
+#: core/models.py:82
 msgid "Product"
 msgstr ""
 
-#: core/models.py:80
+#: core/models.py:83
 msgid "Products"
 msgstr ""
 
-#: core/models.py:98
+#: core/models.py:101
 msgid "Contact"
 msgstr ""
 
-#: core/models.py:99 core/templates/partials/header.html:63
+#: core/models.py:102 core/templates/partials/header.html:64
 msgid "Contacts"
 msgstr ""
 
@@ -196,50 +196,58 @@ msgstr ""
 msgid "Free shipping, 30-day return or refund guarantee."
 msgstr ""
 
-#: core/templates/partials/header.html:21
+#: core/templates/partials/header.html:22
 msgid "Log out"
 msgstr ""
 
-#: core/templates/partials/header.html:23
+#: core/templates/partials/header.html:24
 msgid "Log in"
 msgstr ""
 
-#: core/templates/partials/header.html:25
+#: core/templates/partials/header.html:26
 msgid "Sign up"
 msgstr ""
 
-#: core/templates/partials/header.html:26
+#: core/templates/partials/header.html:27
 msgid "FAQs"
 msgstr ""
 
-#: core/templates/partials/header.html:51
+#: core/templates/partials/header.html:52
 msgid "Home"
 msgstr ""
 
-#: core/templates/partials/header.html:52
+#: core/templates/partials/header.html:53
 msgid "Shop"
 msgstr ""
 
-#: core/templates/partials/header.html:53
+#: core/templates/partials/header.html:54
 msgid "Pages"
 msgstr ""
 
-#: core/templates/partials/header.html:55
+#: core/templates/partials/header.html:56
 msgid "About Us"
 msgstr ""
 
-#: core/templates/partials/header.html:57
+#: core/templates/partials/header.html:58
 msgid "Shopping Cart"
 msgstr ""
 
-#: core/templates/partials/header.html:58
+#: core/templates/partials/header.html:59
 msgid "Check Out"
 msgstr ""
 
-#: core/templates/partials/header.html:59
+#: core/templates/partials/header.html:60
 msgid "Blog Details"
 msgstr ""
 
-#: core/templates/partials/header.html:62
+#: core/templates/partials/header.html:63
 msgid "Blog"
+msgstr ""
+
+#: core/templates/search.html:9
+msgid "Search Results for"
+msgstr ""
+
+#: core/templates/search.html:22
+msgid "No results found."
 msgstr ""

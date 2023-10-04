@@ -1,8 +1,13 @@
+
+
 from django.shortcuts import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from core.models import Product, News
+from core.models import *
 from core.forms import ContactForm
 from django.urls import reverse
+from django.db.models import Q
+from django.core.paginator import Paginator
+
 # Create your views here.
 
 
@@ -97,11 +102,21 @@ def blog_details(request):
 
 
 def shop(request):
+      mehsullar = Product.objects.all()
+      paginator = Paginator(mehsullar, 3)
+      page= request.GET.get('page')
+      mehsullar = paginator.get_page(page)
+      
+      
       context = {
-                       
+               "mehsul" : mehsullar,
+               'page_obj': page,      
       }
       return render(request, "shop.html" , context)
 
+      
+      
+      
 
 def male_fashion(request):
       context = {
@@ -137,3 +152,37 @@ def search(request):
         return render(request, 'search.html', context)
     else:
         return HttpResponseRedirect(reverse('home'))
+  
+  
+
+
+def shop_product_view(request):    
+    products = Product.objects.all()   
+    context = {'products': products}
+    return render(request, 'shop.html', context)
+
+
+
+
+
+
+# from django.shortcuts import render
+# from .models import Product
+
+# def filter_products_by_price(request, min_price, max_price):
+#     # Convert the price values from string to integers
+#     min_price = int(min_price)
+#     max_price = int(max_price)
+    
+#     # Query the products within the specified price range
+#     filtered_products = Product.objects.filter(price__gte=min_price, price__lte=max_price)
+
+#     context = {
+#         'filtered_products': filtered_products,
+#         'min_price': min_price,
+#         'max_price': max_price,
+#     }
+
+#     return render(request, 'shop.html', context)
+
+

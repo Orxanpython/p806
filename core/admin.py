@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from core.models import (News, Setting, Category, Product, Contact)
+from core.models import (News, Setting, Category, Product, Contact, Subscriber)
 from modeltranslation.admin import TranslationAdmin
 
 
@@ -9,6 +9,7 @@ admin.site.register(Setting)
 admin.site.register(Category)
 admin.site.register(Product)
 admin.site.register(Contact)
+admin.site.register(Subscriber)
 
 
 @admin.register(News)
