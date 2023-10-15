@@ -103,14 +103,47 @@ def blog_details(request):
 
 def shop(request):
       mehsullar = Product.objects.all()
+      brands = Brands.objects.all()
+      size = Size.objects.all()
+      tags = Tag.objects.all()
+      color = Color.objects.all()
+      
       paginator = Paginator(mehsullar, 3)
       page= request.GET.get('page')
       mehsullar = paginator.get_page(page)
       
+      if "brands" in request.GET.keys():        
+            mehsullar = Product.objects.filter(
+                  brands_id__title=request.GET["brands"])
+         
+      if "size" in request.GET.keys():        
+            mehsullar = Product.objects.filter(
+                  size_id__title=request.GET["size"])
+            
+
+      if "tags" in request.GET.keys():
+             mehsullar = Product.objects.filter(
+                    tags__title=request.GET["tags"])
+
+      if "min_price" in request.GET.keys():
+       
+            mehsullar = Product.objects.filter(
+              price__gte=request.GET["min_price"], price__lte=request.GET["max_price"])
+      
+      if "color" in request.GET.keys():        
+            mehsullar = Product.objects.filter(
+                  color_id__title=request.GET["color"])
+      
+      
       
       context = {
                "mehsul" : mehsullar,
-               'page_obj': page,      
+               'page_obj': page,  
+               'brands': brands,
+               'size': size, 
+               'tags':tags,  
+               'color': color,              
+               
       }
       return render(request, "shop.html" , context)
 

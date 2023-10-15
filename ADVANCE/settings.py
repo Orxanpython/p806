@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'django_celery_beat',
+    'simple_history',
 ]
 
 MIDDLEWARE = [
@@ -241,8 +242,8 @@ CELERY_TIMEZONE = 'Asia/Baku'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'sultan.sadatov.2018@gmail.com'
-EMAIL_HOST_PASSWORD = 'skpdaigfktpmpaqo'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

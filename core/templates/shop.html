@@ -36,10 +36,10 @@
                         <div class="shop__sidebar__accordion">
                             <div class="accordion" id="accordionExample">
                                 <div class="card">
-                                    <div class="card-heading">
+                                    {% comment %} <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
-                                    </div>
-                                    <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                    </div> {% endcomment %}
+                                    {% comment %} <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__categories">
                                                 <ul class="nice-scroll">
@@ -55,7 +55,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> {% endcomment %}
                                 </div>
                                 <div class="card">
                                     <div class="card-heading">
@@ -65,10 +65,10 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__brand">
                                                 <ul>
-                                                    <li><a href="#">Louis Vuitton</a></li>
-                                                    <li><a href="#">Chanel</a></li>
-                                                    <li><a href="#">Hermes</a></li>
-                                                    <li><a href="#">Gucci</a></li>
+                                                    <li><a href="{% url 'shop' %}">All brands</a></li>
+                                                   {% for brands in brands %}
+                                                    <li><a href="{% url 'shop' %}?brands={{ brands.title }}">{{ brands.title }}</a></li>
+                                                    {% endfor %}
                                                 </ul>
                                             </div>
                                         </div>
@@ -82,12 +82,12 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__price">
                                                 <ul>
-                                                    <li><a href="#">$0.00 - $50.00</a></li>
-                                                    <li><a href="#">$50.00 - $100.00</a></li>
-                                                    <li><a href="#">$100.00 - $150.00</a></li>
-                                                    <li><a href="#">$150.00 - $200.00</a></li>
-                                                    <li><a href="#">$200.00 - $250.00</a></li>
-                                                    <li><a href="#">250.00+</a></li>
+                                                    <li><a href="{% url 'shop' %}?min_price=0&max_price=50">$0.00 - $50.00</a></li>
+                                                    <li><a href="{% url 'shop' %}?min_price=50&max_price=100">$50.00 - $100.00</a></li>
+                                                    <li><a href="{% url 'shop' %}?min_price=100&max_price=150">$100.00 - $150.00</a></li>
+                                                    <li><a href="{% url 'shop' %}?min_price=150&max_price=200">$150.00 - $200.00</a></li>
+                                                    <li><a href="{% url 'shop' %}?min_price=200&max_price=250">$200.00 - $250.00</a></li>
+                                                    <li><a href="{% url 'shop' %}?min_price=250&max_price=10000">250.00+</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -100,10 +100,15 @@
                                     <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__size">
-                                                <label for="xs">xs
+                                                <label for="xs">M
                                                     <input type="radio" id="xs">
                                                 </label>
-                                                <label for="sm">s
+                                                {% for size in size %}
+                                                <label for="xs" ><a href="{% url 'shop' %}?size={{ size.title }}">{{ size.title }}</a>
+                                                    <input type="radio" id="xs">
+                                                </label>
+                                                {% endfor %}
+                                                {% comment %} <label for="sm">s
                                                     <input type="radio" id="sm">
                                                 </label>
                                                 <label for="md">m
@@ -123,7 +128,7 @@
                                                 </label>
                                                 <label for="4xl">4xl
                                                     <input type="radio" id="4xl">
-                                                </label>
+                                                </label> {% endcomment %}
                                             </div>
                                         </div>
                                     </div>
@@ -135,13 +140,22 @@
                                     <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__color">
-                                                <label class="c-1" for="sp-1">
-                                                    <input type="radio" id="sp-1">
-                                                </label>
-                                                <label class="c-2" for="sp-2">
+                                                {% for color in color %}
+                                                <a href="{% url 'shop' %}?color={{ color.title }}">
+                                                <label class="{{ color.title }}">
+                                                   
+                                                </label></a>
+                                                {% endfor %}
+
+
+
+                                                {% comment %} <label class="c-2" for="sp-2">
                                                     <input type="radio" id="sp-2">
-                                                </label>
-                                                <label class="c-3" for="sp-3">
+                                                </label> {% endcomment %}
+
+
+
+                                                {% comment %} <label class="c-3" for="sp-3">
                                                     <input type="radio" id="sp-3">
                                                 </label>
                                                 <label class="c-4" for="sp-4">
@@ -161,7 +175,7 @@
                                                 </label>
                                                 <label class="c-9" for="sp-9">
                                                     <input type="radio" id="sp-9">
-                                                </label>
+                                                </label> {% endcomment %}
                                             </div>
                                         </div>
                                     </div>
@@ -174,12 +188,14 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__tags">
                                                 <a href="#">Product</a>
-                                                <a href="#">Bags</a>
-                                                <a href="#">Shoes</a>
+                                                {% for tags in tags %}                                                
+                                                <a href="{% url 'shop' %}?tags={{ tags.title }}">{{ tags.title }}</a>
+                                                {% endfor %}
+                                                {% comment %} <a href="#">Shoes</a>
                                                 <a href="#">Fashio</a>
                                                 <a href="#">Clothing</a>
                                                 <a href="#">Hats</a>
-                                                <a href="#">Accessories</a>
+                                                <a href="#">Accessories</a> {% endcomment %}
                                             </div>
                                         </div>
                                     </div>
@@ -223,15 +239,23 @@
                                     <h6>{{ product.title }}</h6>
                                     <a href="{% url 'shop_detail' slug=product.slug %}" class="add-cart">+ Add To Cart</a>
                                     <div class="product__color__select">
-                                        <!-- Add your color selection code here -->
+                                        <!-- Renk seçim kodlarınızı buraya ekleyin -->
                                     </div>
-                                    <h5>${{ product.price }}</h5>
+                                    {% if product.discounted_price %}
+                                        <h5>{{ product.discounted_price|floatformat:2 }} $</h5>  <!-- Sadece indirimli fiyatı olan ürünler için göster -->
+                                    {% else %}
+                                        <h5>{{ product.price|floatformat:2 }} $</h5>  <!-- Sadece indirimli fiyatı olmayan ürünler için göster -->
+                                    {% endif %}
+                                    {% if product.discounted_price and not product.price == product.discounted_price %}
+                                        <p style="text-decoration: line-through;">Original Price: ${{ product.price|floatformat:2 }}</p>  <!-- Eğer indirimli fiyat varsa ve orijinal fiyat, indirimli fiyatla aynı değilse orijinal fiyatı göster -->
+                                    {% endif %}
                                     <div class="rating">
                                         {% for _ in product.rating_range %}
                                             <i class="fa fa-star"></i>
                                         {% endfor %}
                                     </div>
                                 </div>
+                                                                                                                        
                             </div>
                         </div>
                         {% endfor %}                    

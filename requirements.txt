@@ -20,14 +20,17 @@ django-ckeditor==6.7.0
 django-js-asset==2.1.0
 django-modeltranslation==0.18.11
 django-rosetta==0.9.9
+django-simple-history==3.4.0
 django-timezone-field==6.0.1
 django-widget-tweaks==1.5.0
 djangorestframework==3.14.0
 drf-yasg==1.21.7
+et-xmlfile==1.1.0
 idna==3.4
 inflection==0.5.1
 kombu==5.3.2
 oauthlib==3.2.2
+openpyxl==3.1.2
 packaging==23.1
 Pillow==10.0.0
 polib==1.2.0
