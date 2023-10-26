@@ -12,12 +12,13 @@ from django.core.paginator import Paginator
 
 
 def home (request):
-      context = {
-            "home" : "Django",
-            "products": Product.objects.all(),
-                       
-      }
-      return render(request, "index.html" , context)
+    sliders = Slider.objects.all()
+    context = {
+        "sliders": sliders,
+        "home": "Django",
+        "products": Product.objects.all(),
+    }
+    return render(request, "index.html", context)
 
 
 
@@ -41,6 +42,8 @@ def shop_cart(request):
 from core.forms import ContactForm
 
 def contact_view(request):
+    contact_info = ContactInfo.objects.all()
+  
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -50,7 +53,7 @@ def contact_view(request):
     else:
         form = ContactForm()
 
-    return render(request, 'contact.html', {'form': form})
+        return render(request, 'contact.html', {'form': form, 'contact_info': contact_info})
 
       
       
@@ -63,19 +66,18 @@ def contact_view(request):
 
 
 
-
 def blog(request):
-      context = {
-                       
-      }
-      return render(request, "blog.html" , context)
+    blog_posts = BlogPost.objects.all()
+    return render(request, "blog.html", {'blog_posts': blog_posts})
 
 
 def about_us(request):
-      context = {
-                       
-      }
-      return render(request, "about.html" , context)
+    about_items = AboutItem.objects.all()  
+
+    context = {
+        'about_items': about_items,
+    }
+    return render(request, 'about.html', context)
 
 
 
@@ -219,3 +221,35 @@ def shop_product_view(request):
 #     return render(request, 'shop.html', context)
 
 
+
+
+from django.shortcuts import render, redirect
+from .forms import CheckoutForm
+from .models import Order
+
+from django.shortcuts import render, redirect
+from .forms import CheckoutForm
+
+def checkout_view(request):
+    if request.method == 'POST':
+        form = CheckoutForm(request.POST)
+        if form.is_valid():
+            form.save()  # Form verilerini veritabanına kaydet
+            # Başka bir işlem yapmak veya başarılı sayfaya yönlendirmek için
+            return redirect('checkout_view')  # 'success_page'yi başarılı sayfanızın URL'siyle değiştirin
+    else:
+        form = CheckoutForm()
+        
+        
+    return render(request, 'checkout.html', {'form': form})
+
+
+
+def blog_details(request, blog_id):
+    blog_post = BlogPost.objects.get(pk=blog_id)
+    return render(request, 'blog-details.html', {'blog_post': blog_post})
+
+
+# def contact_us(request):
+#     contact_info = ContactInfo.objects.all()
+#     return render(request, 'contact.html', {'contact_info': contact_info})

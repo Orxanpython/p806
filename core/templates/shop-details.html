@@ -10,8 +10,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="product__details__breadcrumb">
-                            <a href="./index.html">Home</a>
-                            <a href="./shop.html">Shop</a>
+                            <a href="{% url 'home' %}">Home</a>
+                            <a href="{% url 'shop' %}">Shop</a>
                             <span>Product Details</span>
                         </div>
                     </div>
@@ -93,25 +93,17 @@
                             <div class="product__details__option">
                                 <div class="product__details__option__size">
                                     <span>Size:</span>
-                                    <label for="xxl">xxl
+                                    <label for="xxl">{{ product.size }}
                                         <input type="radio" id="xxl">
-                                    </label>
-                                    <label class="active" for="xl">xl
-                                        <input type="radio" id="xl">
-                                    </label>
-                                    <label for="l">l
-                                        <input type="radio" id="l">
-                                    </label>
-                                    <label for="sm">s
-                                        <input type="radio" id="sm">
                                     </label>
                                 </div>
                                 <div class="product__details__option__color">
                                     <span>Color:</span>
-                                    <label class="c-1" for="sp-1">
+
+                                    <label class="{{ product.color }}" for="sp-1">
                                         <input type="radio" id="sp-1">
                                     </label>
-                                    <label class="c-2" for="sp-2">
+                                    {% comment %} <label class="c-2" for="sp-2">
                                         <input type="radio" id="sp-2">
                                     </label>
                                     <label class="c-3" for="sp-3">
@@ -122,7 +114,7 @@
                                     </label>
                                     <label class="c-9" for="sp-9">
                                         <input type="radio" id="sp-9">
-                                    </label>
+                                    </label> {% endcomment %}
                                 </div>
                             </div>
                             <div class="product__details__cart__option">

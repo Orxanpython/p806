@@ -122,6 +122,7 @@ class Color(BaseModel):
 
 
 
+
 class Product(BaseModel):
     title = models.CharField(max_length=250)
     content = RichTextField()
@@ -134,7 +135,7 @@ class Product(BaseModel):
     tags = models.ForeignKey(Tag,on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name="products") 
     slug = models.SlugField(unique=True, blank=True)
-    history = HistoricalRecords()
+    # history = HistoricalRecords()
     
     def save(self, *args, **kwargs):
         self.slug = slugify(f"{self.title}")
@@ -179,6 +180,23 @@ class Contact(models.Model):
 
 
 
+class Order(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+    address = models.CharField(max_length=255)
+    town_city = models.CharField(max_length=100)
+    country_state = models.CharField(max_length=100)
+    postcode = models.CharField(max_length=20)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()
+    account_password = models.CharField(max_length=100)  # You might want to use a more secure way to store passwords
+    order_notes = models.TextField()
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+
 
 
 
@@ -195,3 +213,61 @@ class Subscriber(BaseModel):
     def __str__(self):
            return self.email
 
+
+
+class BlogPost(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    date = models.DateField()
+    author = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='blog_images/')
+
+    class Meta:
+        verbose_name = _("Blogpost")
+        verbose_name_plural = _("Blogposts")
+        
+    def __str__(self):
+           return self.title
+
+
+
+class ContactInfo(models.Model):
+    country = models.CharField(max_length=100)
+    content = models.TextField()
+    address = models.TextField()
+    phone_number = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.country
+    
+    class Meta:
+        verbose_name = _("ContactInfo")
+        verbose_name_plural = _("ContactInfos")
+    
+    
+
+class AboutItem(models.Model):
+    image1 = models.ImageField(upload_to='about_images/')
+    question = models.CharField(max_length=255)
+    answer = models.TextField()
+    author = models.CharField(max_length=100)
+    image2 = models.ImageField(upload_to='about_images/')
+    description = models.TextField()
+
+    def __str__(self):
+        return self.question
+
+    class Meta:
+        verbose_name = 'About Item'
+        verbose_name_plural = 'About Items'
+
+
+
+class Slider(models.Model):
+    title1 = models.CharField(max_length=100)
+    title2 = models.CharField(max_length=100)
+    description = models.TextField()
+    image = models.ImageField(upload_to='slider_images/')
+
+    def __str__(self):
+        return self.title1

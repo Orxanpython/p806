@@ -17,7 +17,8 @@ urlpatterns = [
     path("male fashion/",male_fashion, name="male_fashion"),
     path("shop/<slug:slug>/", shop_detail, name="shop_detail"),
     path('search/', search, name="search"),
-    # path('filter_products/<int:min_price>/<int:max_price>/', views.filter_products_by_price, name='filter_products_by_price'),
+    path('order/', views.checkout_view, name='checkout_view'),
+    path('blog/<int:blog_id>/', views.blog_details, name='blog_details'),
     
     
 ]

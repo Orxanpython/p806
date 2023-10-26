@@ -18,6 +18,12 @@ admin.site.register(Brands)
 admin.site.register(Size)
 admin.site.register(Tag)
 admin.site.register(Color)
+admin.site.register(Order)
+admin.site.register(Product)
+admin.site.register(BlogPost)
+admin.site.register(ContactInfo)
+admin.site.register(AboutItem)
+admin.site.register(Slider)
 
 
 @admin.register(News)
@@ -69,33 +75,30 @@ export_to_excel.short_description = "Export to Excel"
 
 
 
-@admin.register(Product)
-class ProductAdmin(SimpleHistoryAdmin):
-    list_display = ('title', 'created_at', 'updated_at', 'price', 'discount', 'brands', 'size', 'color', 'tags', 'category')
-    search_fields = ('title', 'content',)
-    list_filter = ('created_at', 'updated_at', 'category')
-    ordering = ('created_at',)
-    readonly_fields = ('created_at', 'updated_at',)
-    fieldsets = (
-        (None, {
-            'fields': ('title', 'content', 'image', 'price', 'discount', 'brands', 'size', 'color', 'tags', 'category', 'slug')
-        }),
-        ('Translations', {
-            'fields': ('title_en', 'content_en', 'title_tr', 'content_tr', 'title_az', 'content_az'),  # Include your translation fields here
-            'classes': ('collapse',)  
-        }),
-    )
-    actions = [export_to_excel]
+# # @admin.register(Product)
+# class ProductAdmin(SimpleHistoryAdmin):
+#     list_display = ('title', 'created_at', 'updated_at', 'price', 'discount', 'brands', 'size', 'color', 'tags', 'category')
+#     search_fields = ('title', 'content',)
+#     list_filter = ('created_at', 'updated_at', 'category')
+#     ordering = ('created_at',)
+    # readonly_fields = ('created_at', 'updated_at',)
+    # fieldsets = (
+    #     (None, {
+    #         'fields': ('title', 'content', 'image', 'price', 'discount', 'brands', 'size', 'color', 'tags', 'category', 'slug')
+    #     }),
+    #     # ('Translations', {
+    #     #     'fields': ('title_en', 'content_en', 'title_tr', 'content_tr', 'title_az', 'content_az'),  # Include your translation fields here
+    #     #     'classes': ('collapse',)  
+    #     # }),
+    # )
+    # actions = [export_to_excel]
     
     
     
     
-    def save_model(self, request, obj, form, change):
-        if change and form.initial['discount'] != form.cleaned_data['discount']:
-            
-            changed_by = request.user
-            
-            print(f"The discount of product {obj.title} has been changed by {changed_by}.")
-
-        super().save_model(request, obj, form, change)
+    # def save_model(self, request, obj, form, change):
+    #     if change and form.initial['discount'] != form.cleaned_data['discount']:            
+    #         changed_by = request.user            
+    #         print(f"The discount of product {obj.title} has been changed by {changed_by}.")
+    #     super().save_model(request, obj, form, change)
     

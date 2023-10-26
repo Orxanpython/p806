@@ -11,7 +11,7 @@
                     <div class="breadcrumb__text">
                         <h4>Shop</h4>
                         <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
+                            <a href="{% url 'home' %}">Home</a>
                             <span>Shop</span>
                         </div>
                     </div>
@@ -27,9 +27,9 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="shop__sidebar">
-                        <div class="shop__sidebar__search">
-                            <form action="#">
-                                <input type="text" placeholder="Search...">
+                        <div class="shop__sidebaaction="#"r__search">
+                            <form action= "{% url 'search' %}" method="get">
+                                <input type="text" id="search-input" placeholder="Search here....." name="query"> 
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
                         </div>
@@ -186,16 +186,11 @@
                                     </div>
                                     <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
-                                            <div class="shop__sidebar__tags">
-                                                <a href="#">Product</a>
+                                            <div class="shop__sidebar__tags">                                                
                                                 {% for tags in tags %}                                                
                                                 <a href="{% url 'shop' %}?tags={{ tags.title }}">{{ tags.title }}</a>
                                                 {% endfor %}
-                                                {% comment %} <a href="#">Shoes</a>
-                                                <a href="#">Fashio</a>
-                                                <a href="#">Clothing</a>
-                                                <a href="#">Hats</a>
-                                                <a href="#">Accessories</a> {% endcomment %}
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -212,7 +207,7 @@
                                     <p>Showing 1–12 of 126 results</p>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
+                            {% comment %} <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__right">
                                     <p>Sort by Price:</p>
                                     <select>
@@ -221,7 +216,7 @@
                                         <option value="">$55 - $100</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> {% endcomment %}
                         </div>
                     </div>
                     <div class="row">                        
@@ -232,14 +227,14 @@
                                     <ul class="product__hover">
                                         <li><a href="#"><img src="{% static 'img/icon/heart.png' %}" alt=""></a></li>
                                         <li><a href="#"><img src="{% static 'img/icon/compare.png' %}" alt=""> <span>Compare</span></a></li>
-                                        <li><a href="#"><img src="{% static 'img/icon/search.png' %}" alt=""></a></li>
+                                        <li><a href="{% url 'shop_detail' slug=product.slug %}"><img src="{% static 'img/icon/search.png' %}" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
                                     <h6>{{ product.title }}</h6>
                                     <a href="{% url 'shop_detail' slug=product.slug %}" class="add-cart">+ Add To Cart</a>
                                     <div class="product__color__select">
-                                        <!-- Renk seçim kodlarınızı buraya ekleyin -->
+                                        
                                     </div>
                                     {% if product.discounted_price %}
                                         <h5>{{ product.discounted_price|floatformat:2 }} $</h5>  <!-- Sadece indirimli fiyatı olan ürünler için göster -->
@@ -729,5 +724,16 @@
     </section>
     <!-- Shop Section End -->
 
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
 
 {% endblock %}
