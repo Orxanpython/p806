@@ -101,8 +101,8 @@ class Tag(BaseModel):
         verbose_name = _("Tag")
         verbose_name_plural = _("Tags")
         
-    def __str__(self):
-        return self.title
+    # def __str__(self):
+    #     return self.title
 
 
   
@@ -127,6 +127,9 @@ class Product(BaseModel):
     title = models.CharField(max_length=250)
     content = RichTextField()
     image = models.ImageField(upload_to="news", null=True, blank=True)
+    image_2 = models.ImageField(upload_to="news", null=True, blank=True)
+    image_3 = models.ImageField(upload_to="news", null=True, blank=True)
+    image_4 = models.ImageField(upload_to="news", null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     discount = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
     brands = models.ForeignKey(Brands,on_delete=models.CASCADE)

@@ -74,35 +74,23 @@
     
     <!-- Banner Section End -->
 
-    <br> 
-    <br> 
+    
+    
+    
     <section class="shop spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="shop__sidebar">
-                        <div class="shop__sidebar__accordion">
-                            <div class="accordion" id="accordionExample">
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
-                                    </div>
-                                    <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__tags">                                                
-                                                {% for tags in tags %}                                                
-                                                <a href="{% url 'shop' %}?tags={{ tags.title }}">{{ tags.title }}</a>
-                                                {% endfor %}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="shop__sidebar">
+                    <div class="shop__sidebar__tags">
+                        {% for tag in tags %}
+                            <a style="font-size: 1.5em; display: inline-block; margin-right: 10px; margin-bottom: 10px;" href="?tags={{ tag.title }}">{{ tag.title }}</a>
+                        {% endfor %}
                     </div>
+                    
                 </div>
             </div>
-    
+            <br>
+            <br> 
             <div class="row">                        
                 {% for product in mehsul %}
                     <div class="col-lg-4 col-md-6 col-sm-6">
@@ -110,8 +98,8 @@
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{ product.image.url }}">
                                 <ul class="product__hover">
-                                    <li><a href="#"><img src="{% static 'img/icon/heart.png' %}" alt=""></a></li>
-                                    <li><a href="#"><img src="{% static 'img/icon/compare.png' %}" alt=""> <span>Compare</span></a></li>
+                                    {% comment %} <li><a href="#"><img src="{% static 'img/icon/heart.png' %}" alt=""></a></li>
+                                    <li><a href="#"><img src="{% static 'img/icon/compare.png' %}" alt=""> <span>Compare</span></a></li> {% endcomment %}
                                     <li><a href="{% url 'shop_detail' slug=product.slug %}"><img src="{% static 'img/icon/search.png' %}" alt=""></a></li>
                                 </ul>
                             </div>
@@ -444,7 +432,7 @@
 
     
     <!-- Instagram Section Begin -->
-    <section class="instagram spad">
+    {% comment %} <section class="instagram spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -467,42 +455,43 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> {% endcomment %}
     <!-- Instagram Section End -->
 
     <!-- Latest Blog Section Begin -->
     <!-- Latest Blog Section Begin -->
-        <section class="latest spad">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title">
-                            <span>{% trans 'Latest Blogs' %}</span>                        
+    <section class="latest spad" style="margin-bottom: 10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title" style="margin-bottom: 10px;">
+                        <span style="font-size: 30px; font-weight: bold;">{% trans 'Latest Blogs' %}</span>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Blog Section Begin -->
+    <section class="blog spad" style="padding-top: 10px;">
+        <div class="container">
+            <div class="row">
+                {% for blog_post in blog_posts %}
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic set-bg" data-setbg="{{ blog_post.image.url }}"></div>
+                        <div class="blog__item__text">
+                            <span><img src="{% static 'img/icon/calendar.png' %}" alt=""> {{ blog_post.date }}</span>
+                            <h5>{{ blog_post.title }}</h5>
+                            <a href="{% url 'blog_details' blog_post.id %}">Read More</a>
                         </div>
                     </div>
                 </div>
-                <!-- Blog Section Begin -->
-                <section class="blog spad">
-                    <div class="container">
-                        <div class="row">
-                            {% for blog_post in blog_posts %}
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="blog__item">
-                                    <div class="blog__item__pic set-bg" data-setbg="{{ blog_post.image.url }}"></div>
-                                    <div class="blog__item__text">
-                                        <span><img src="{% static 'img/icon/calendar.png' %}" alt=""> {{ blog_post.date }}</span>
-                                        <h5>{{ blog_post.title }}</h5>
-                                        <a href="{% url 'blog_details' blog_post.id %}">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </section>
+                {% endfor %}
             </div>
-        </section>
-
+        </div>
+    </section>
+    
             {% comment %} <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="blog__item">

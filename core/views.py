@@ -10,13 +10,22 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 
-
-def home (request):
+def home(request):
     sliders = Slider.objects.all()
+    tags = Tag.objects.all()
+
+    products = Product.objects.all()
+    if 'tags' in request.GET:
+        tags_param = request.GET.getlist('tags')
+        products = products.filter(tags__title__in=tags_param).distinct()
+
     context = {
         "sliders": sliders,
         "home": "Django",
-        "products": Product.objects.all(),
+        "products": products,
+        'mehsul': products,
+        'tags': tags,
+        'blog_posts': BlogPost.objects.all(),
     }
     return render(request, "index.html", context)
 
@@ -110,7 +119,7 @@ def shop(request):
       tags = Tag.objects.all()
       color = Color.objects.all()
       
-      paginator = Paginator(mehsullar, 3)
+      paginator = Paginator(mehsullar, 6)
       page= request.GET.get('page')
       mehsullar = paginator.get_page(page)
       
@@ -137,14 +146,15 @@ def shop(request):
                   color_id__title=request.GET["color"])
       
       
-      
+      product_count = len(mehsullar)  # Count the number of products
       context = {
                "mehsul" : mehsullar,
                'page_obj': page,  
                'brands': brands,
                'size': size, 
                'tags':tags,  
-               'color': color,              
+               'color': color,
+               'product_count': product_count,  
                
       }
       return render(request, "shop.html" , context)
